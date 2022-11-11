@@ -1,0 +1,43 @@
+{
+  "coord": {
+    "lon": -0.1257,
+    "lat": 51.5085
+  },
+  "weather": [
+    {
+      "id": 804,
+      "main": "Clouds",
+      "description": "overcast clouds",
+      "icon": "04d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 287.78,
+    "feels_like": 287.47,
+    "temp_min": 286.46,
+    "temp_max": 288.64,
+    "pressure": 1024,
+    "humidity": 83
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 4.63,
+    "deg": 210
+  },
+  "clouds": {
+    "all": 100
+  },
+  "dt": 1668154180,
+  "sys": {
+    "type": 2,
+    "id": 2075535,
+    "country": "GB",
+    "sunrise": 1668150682,
+    "sunset": 1668183466
+  },
+  "timezone": 0,
+  "id": 2643743,
+  "name": "MockServer",
+  "cod": 200
+}

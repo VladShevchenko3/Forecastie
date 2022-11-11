@@ -30,6 +30,7 @@ import javax.net.ssl.SSLSocketFactory;
 import cz.martykan.forecastie.Constants;
 import cz.martykan.forecastie.R;
 import cz.martykan.forecastie.activities.MainActivity;
+import cz.martykan.forecastie.utils.BaseDomainHolder;
 import cz.martykan.forecastie.utils.Language;
 import cz.martykan.forecastie.utils.certificate.CertificateUtils;
 import cz.martykan.forecastie.weatherapi.WeatherStorage;
@@ -242,7 +243,7 @@ public abstract class GenericRequestTask extends AsyncTask<String, String, TaskO
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         String apiKey = sp.getString("apiKey", context.getString(R.string.apiKey));
 
-        StringBuilder urlBuilder = new StringBuilder("https://api.openweathermap.org/data/2.5/");
+        StringBuilder urlBuilder = new StringBuilder(BaseDomainHolder.INSTANCE.getBaseDomain() +"/data/2.5/");
         urlBuilder.append(getAPIName()).append("?");
         if (reqParams.length > 0) {
             final String zeroParam = reqParams[0];
