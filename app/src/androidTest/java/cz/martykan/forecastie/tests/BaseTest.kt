@@ -2,8 +2,9 @@ package cz.martykan.forecastie.tests
 
 import androidx.test.core.app.ActivityScenario
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
-import cz.martykan.forecastie.MockDispatcher
 import cz.martykan.forecastie.activities.MainActivity
+import cz.martykan.forecastie.mocks.MockDispatcher
+import cz.martykan.forecastie.mocks.MockDispatcher.Companion.requestResponseList
 import cz.martykan.forecastie.utils.BaseDomainHolder
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
@@ -25,6 +26,7 @@ open class BaseTest : TestCase() {
 
     @After
     fun tearDown() {
+        requestResponseList.clear()
         mockWebServer.shutdown()
         activityScenario.close()
     }
