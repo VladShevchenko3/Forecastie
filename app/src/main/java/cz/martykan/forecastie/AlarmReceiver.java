@@ -1,5 +1,6 @@
 package cz.martykan.forecastie;
 
+
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -29,6 +30,7 @@ import java.net.URLEncoder;
 
 import cz.martykan.forecastie.activities.MainActivity;
 import cz.martykan.forecastie.notifications.WeatherNotificationService;
+import cz.martykan.forecastie.utils.BaseDomainHolder;
 import cz.martykan.forecastie.utils.Language;
 import cz.martykan.forecastie.widgets.AbstractWidgetProvider;
 
@@ -116,7 +118,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
                 String language = Language.getOwmLanguage();
                 String apiKey = sp.getString("apiKey", context.getResources().getString(R.string.apiKey));
-                URL url = new URL("https://api.openweathermap.org/data/2.5/weather?id=" + URLEncoder.encode(sp.getString("cityId", Constants.DEFAULT_CITY_ID), "UTF-8") + "&lang="+ language +"&appid=" + apiKey);
+                URL url = new URL(BaseDomainHolder.INSTANCE.getBaseDomain() +"/data/2.5/weather?id=" + URLEncoder.encode(sp.getString("cityId", Constants.DEFAULT_CITY_ID), "UTF-8") + "&lang="+ language +"&appid=" + apiKey);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 BufferedReader connectionBufferedReader = null;
                 try {
